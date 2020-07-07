@@ -35,6 +35,7 @@ public class PixelArtMaker implements MouseListener{
 		window.pack();
 	}
 	
+	
 	public static void main(String[] args) {
 		new PixelArtMaker().start();
 	}

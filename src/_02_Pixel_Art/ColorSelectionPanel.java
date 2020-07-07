@@ -121,7 +121,6 @@ public class ColorSelectionPanel extends JPanel implements MouseListener, Change
 				colorImage.setRGB(j, i, color.getRGB());
 			}
 		}
-		
 		colorLabel.setIcon(new ImageIcon(colorImage));
 		add(colorLabel);
 	}

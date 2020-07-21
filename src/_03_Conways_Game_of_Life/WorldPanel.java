@@ -39,7 +39,7 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 		//   passing in the location.
 		for (int i = 0; i < joe.length; i++) {
 			for (int j = 0; j < joe[i].length; j++) {
-				joe[i][j] = new Cell(10 * i , 10 * j, 10);
+				joe[i][j] = new Cell(cellSize * i , cellSize * j, cellSize);
 			}
 		}
 		
@@ -89,8 +89,9 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 		for (int i = 0; i < joe.length; i++) {
 			for (int j = 0; j < joe[i].length; j++) {
 				if (joe[i][j].isAlive) {
-					g.setColor(Color.DARK_GRAY);
-					g.fillRect(10 * i , 10 * j, 10, 10);
+					//g.setColor(Color.DARK_GRAY);
+					//g.fillRect(10 * i , 10 * j, 10, 10);
+					joe[i][j].draw(g);
 				}
 			}
 		}
@@ -134,52 +135,52 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 			if (y - 1 >= 0) 
 			{
 				if (joe[x - 1][y - 1].isAlive) {
-					neighs= neighs + 1;
+					neighs = neighs + 1;
 				}
 			}
 			if (joe[x - 1][y].isAlive) 
 			{
-				neighs= neighs + 1;
+				neighs = neighs + 1;
 			}
-			if (y + 1 >= cellsPerRow) 
+			if (y + 1 <= joe[x].length - 1) 
 			{
 				if (joe[x - 1][y + 1].isAlive) 
 				{
-					neighs= neighs + 1;
+					neighs = neighs + 1;
 				}
 			}
 		}
-		if (x + 1 >= 0) 
+		if (x + 1 <= joe.length - 1) 
 		{
 			if (y - 1 >= 0) 
 			{
 				if (joe[x + 1][y - 1].isAlive) {
-					neighs= neighs + 1;
+					neighs = neighs + 1;
 				}
 			}
 			if (joe[x + 1][y].isAlive) 
 			{
-				neighs= neighs + 1;
+				neighs = neighs + 1;
 			}
-			if (y + 1 >= cellsPerRow) 
+			if (y + 1 <= joe[x].length - 1) 
 			{
 				if (joe[x + 1][y + 1].isAlive) 
 				{
-					neighs= neighs + 1;
+					neighs = neighs + 1;
 				}
 			}
 		}
 		if (y - 1 >= 0) 
 		{
 			if (joe[x][y - 1].isAlive) {
-				neighs= neighs + 1;
+				neighs = neighs + 1;
 			}
 		}
-		if (y + 1 >= cellsPerRow) 
+		if (y + 1 <= joe[x].length - 1) 
 		{
 			if (joe[x][y + 1].isAlive) 
 			{
-				neighs= neighs + 1;
+				neighs = neighs + 1;
 			}
 		}
 		

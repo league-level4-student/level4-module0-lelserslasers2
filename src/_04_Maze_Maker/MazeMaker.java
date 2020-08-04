@@ -26,7 +26,7 @@ public class MazeMaker{
 		int randNumY = randGen.nextInt(height);
 		
 		//5. call selectNextPath method with the randomly selected cell
-		
+		selectNextPath();
 		
 		return maze;
 	}
